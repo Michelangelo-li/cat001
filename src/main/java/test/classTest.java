@@ -40,5 +40,6 @@ public class classTest {
         System.out.println("idea commit");
         System.out.println("idea second commit");
         System.out.println("idea third commit");
+        System.out.println("alter user.email");
     }
 }
