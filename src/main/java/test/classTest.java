@@ -4,9 +4,6 @@ import bean.I001_020_TargetReportDescriptor;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Data
 public class classTest {
 
@@ -26,13 +23,19 @@ public class classTest {
 
     @Test
     public void test02() {
+        int i = 1;
+        int j = i++;
+        ++j;
 
+        System.out.println(j);
+        if ((j > ++j) && (i++ == j)) {
+            //j=1  j++ = 1
+            //j =2
+            j += i;
+        }
+        System.out.println(j);
+        System.out.println();
         String a = "test commit";
         System.out.println("alter username commit");
-        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-        System.out.println(df.format(new Date()) + "提交");// new Date()为获取当前系统时间
-        System.out.println("idea push commit");
-        System.out.println("third commit");
-
     }
 }
