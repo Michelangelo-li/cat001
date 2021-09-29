@@ -36,5 +36,6 @@ public class classTest {
         System.out.println(j);
         System.out.println();
         String a = "test commit";
+        System.out.println("alter username commit");
     }
 }
