@@ -8,4 +8,4 @@ select
 from
 where exists
 
-select 20+30
+select 20+30;
