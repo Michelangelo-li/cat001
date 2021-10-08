@@ -1,6 +1,7 @@
 package test;
 
 import bean.I001_020_TargetReportDescriptor;
+import bean.I001_030Warning_ErrorConditions;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
 
@@ -20,6 +21,11 @@ public class classTest {
         I001_020_TargetReportDescriptor i001_020_targetReportDescriptor = new I001_020_TargetReportDescriptor(data, 0);
         System.out.println(i001_020_targetReportDescriptor);
     }
+    @Test
+    public void test030(){
+        int[] data = new int[]{87,65};
+        new I001_030Warning_ErrorConditions(data,0);
+    }
 
     @Test
     public void test02() {
@@ -33,13 +39,6 @@ public class classTest {
             //j =2
             j += i;
         }
-        System.out.println(j);
-        System.out.println();
-        String a = "test commit";
-        System.out.println("alter username commit");
-        System.out.println("idea commit");
-        System.out.println("idea second commit");
-        System.out.println("idea third commit");
-        System.out.println("alter user.email");
+
     }
 }

@@ -37,10 +37,5 @@ public class I001_020_TargetReportDescriptor {
         } else {
             return TYP + "," + SIM + "," + SSR_PSR + "," + ANT + "," + SPI + "," + RAB + "," + extent020;
         }
-
-
-        //liguoliang second
-        // 15 3 47 6 84 49  65
-        // (6 3 ) 15 (  84 49 65)
     }
 }
