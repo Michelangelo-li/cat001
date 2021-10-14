@@ -146,7 +146,6 @@ public class CommonUtil {
             }
             // 首位为1 则为负数
         } else {
-            System.out.println("进入else");
             //取得反码
             String s = binarySubtraction1(binaryNumber);
             num = Long.parseLong(s);

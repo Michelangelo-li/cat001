@@ -24,8 +24,6 @@ public class I001_042_CalculatedPositionInCartesianCo_ordinates {
         StringBuilder Y = new StringBuilder();
         X.append(s1).append(s2);
         Y.append(s3).append(s4);
-        System.out.println("X"+X);
-        System.out.println("Y"+Y);
 
         X_Component= CommonUtil.stringBinaryToDecimal(X.toString())/ ratio;
         Y_Component= CommonUtil.stringBinaryToDecimal(Y.toString())/ ratio;
