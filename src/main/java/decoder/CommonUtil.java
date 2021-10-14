@@ -120,4 +120,129 @@ public class CommonUtil {
     private static byte charToByte(char c) {
         return (byte) "0123456789ABCDEF".indexOf(c);
     }
+
+
+
+// 1111101000000011
+    public static long stringBinaryToDecimal(String binaryNumber) {
+        String firstNum = binaryNumber.substring(0, 1);
+        long num = Long.parseLong(binaryNumber);
+
+        long decimal = 0;
+        int p = 0;
+        //首位为0 则为正数
+        if (Integer.parseInt(firstNum) == 0) {
+            //二进制转为十进制
+            while (true) {
+                if (num == 0) {
+                    break;
+                } else {
+                    //111
+                    long temp = num % 10; //1
+                    decimal += temp * Math.pow(2, p);
+                    num = num / 10;
+                    p++;
+                }
+            }
+            // 首位为1 则为负数
+        } else {
+            System.out.println("进入else");
+            //取得反码
+            String s = binarySubtraction1(binaryNumber);
+            num = Long.parseLong(s);
+
+            //1110
+            String oldNum = String.valueOf(num);
+            StringBuilder newNum = new StringBuilder();
+            //获取绝对值的原码
+            for (int i = 0; i < oldNum.length(); i++) {
+                int temp = 0;
+//                if (!oldNum.substring(i,i+1).equals("")){
+//                    temp = Integer.parseInt(oldNum.substring(i,i+1));
+//                    System.out.println("temp"+i+":"+temp);
+//                }
+                String substring = oldNum.substring(i, i + 1);
+                temp = Integer.parseInt(substring);
+
+
+                if (temp == 1) {
+                    newNum.append(0);
+                } else {
+                    newNum.append(1);
+                }
+            }
+
+            //原码
+            long originalCode = Long.parseLong(newNum.toString());
+
+            while (true) {
+                if (originalCode == 0) {
+                    break;
+                } else {
+                    //111
+                    long temp = originalCode % 10; //1
+                    decimal += temp * Math.pow(2, p);
+                    originalCode = originalCode / 10;
+                    p++;
+                }
+                decimal = -decimal;
+            }
+        }
+        return decimal;
+    }
+
+    //e
+    private static String binarySubtraction1(String binaryNum) {
+        StringBuilder newNum = new StringBuilder();
+        if (binaryNum.substring(binaryNum.length() - 1, binaryNum.length()).equals("1")) {
+            for (int i = 0; i < binaryNum.length() - 1; i++) {
+                newNum.append(binaryNum.substring(i, i + 1));
+            }
+            newNum.append("0");
+        } else {
+            /**
+             * 二进制减法实现 首先从倒数第二位开始找1
+             * 找到之后这一位变为0 这个位置后面的都转为1
+             */
+            int index = 0;
+            for (int i = binaryNum.length() - 2; i >= 0; i--) {
+                String string = binaryNum.substring(i, i + 1);
+                if (string.equals("1")) {
+                    index = i + 1;
+                    break;
+                }
+            }
+
+            //把index前面的append到newNum
+            for (int i = 0; i < index - 1; i++) {
+                newNum.append(binaryNum.substring(i, i + 1));
+            }
+            //把index为设置为0
+            newNum.append("0");
+            //index后面的转为1
+            for (int i = index; i < binaryNum.length(); i++) {
+                newNum.append("1");
+            }
+        }
+        return newNum.toString();
+    }
+
+    //把int型数据转化为8字节的二进制字符串
+    public static String intToStringBinary(int data) {
+        String binaryString = Integer.toBinaryString(data);
+        StringBuilder newString = new StringBuilder();
+        if (binaryString.length() < 8) {
+            for (int i = 0; i < 8 - binaryString.length(); i++) {
+                newString.append("0");
+            }
+            for (int i = 0; i < binaryString.length(); i++) {
+                newString.append(binaryString.substring(i, i + 1));
+
+            }
+        }else {
+            // 11 1111 1111
+            newString.append(binaryString.substring(binaryString.length()-8));
+        }
+        return newString.toString();
+    }
 }
