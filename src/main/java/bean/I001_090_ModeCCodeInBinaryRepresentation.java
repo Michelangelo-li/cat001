@@ -1,6 +1,7 @@
 package bean;
 
 
+import decoder.CommonUtil;
 import lombok.Data;
 
 
@@ -9,7 +10,7 @@ import lombok.Data;
 public class I001_090_ModeCCodeInBinaryRepresentation {
     private int V;
     private int G;
-    private int ModeC_HEIGHT;
+    private long ModeC_HEIGHT;
 
     //(LSB) = 1/4 FL = 25 ft
     private int lsb = 25;
@@ -18,7 +19,12 @@ public class I001_090_ModeCCodeInBinaryRepresentation {
     public I001_090_ModeCCodeInBinaryRepresentation(int[] data, int index) {
         V = (data[index] >> 7) & 0x01;
         G = (data[index] >> 6) & 0x01;
-        ModeC_HEIGHT = (((data[index] & 0x3f) << 8) | data[index + 1]) * lsb;
+        StringBuilder ModeC = new StringBuilder();
+        ModeC.append(data[index] >> 5 & 0x01).append(data[index] >> 4 & 0x01).append(data[index] >> 3 & 0x01)
+                .append(data[index] >> 2 & 0x01).append(data[index] >> 1 & 0x01).append(data[index] & 0x01)
+                .append(CommonUtil.intToStringBinary(data[index + 1]));
+        ModeC_HEIGHT = CommonUtil.stringBinaryToDecimal(ModeC.toString());
+
     }
 
     @Override

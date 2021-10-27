@@ -123,7 +123,7 @@ public class CommonUtil {
 
 
 
-// 1111101000000011
+// 110000001010
     public static long stringBinaryToDecimal(String binaryNumber) {
         String firstNum = binaryNumber.substring(0, 1);
         long num = Long.parseLong(binaryNumber);
@@ -149,20 +149,14 @@ public class CommonUtil {
             //取得反码
             String s = binarySubtraction1(binaryNumber);
             num = Long.parseLong(s);
-
             //1110
             String oldNum = String.valueOf(num);
             StringBuilder newNum = new StringBuilder();
             //获取绝对值的原码
             for (int i = 0; i < oldNum.length(); i++) {
-                int temp = 0;
-//                if (!oldNum.substring(i,i+1).equals("")){
-//                    temp = Integer.parseInt(oldNum.substring(i,i+1));
-//                    System.out.println("temp"+i+":"+temp);
-//                }
+                int temp ;
                 String substring = oldNum.substring(i, i + 1);
                 temp = Integer.parseInt(substring);
-
 
                 if (temp == 1) {
                     newNum.append(0);
@@ -173,19 +167,18 @@ public class CommonUtil {
 
             //原码
             long originalCode = Long.parseLong(newNum.toString());
-
             while (true) {
                 if (originalCode == 0) {
                     break;
                 } else {
-                    //111
+                    //1100 0000 1010
                     long temp = originalCode % 10; //1
                     decimal += temp * Math.pow(2, p);
                     originalCode = originalCode / 10;
                     p++;
                 }
-                decimal = -decimal;
             }
+            decimal = -decimal;
         }
         return decimal;
     }

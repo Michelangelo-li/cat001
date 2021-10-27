@@ -1,8 +1,6 @@
 package test;
 
-import bean.I001_020_TargetReportDescriptor;
-import bean.I001_030Warning_ErrorConditions;
-import bean.I001_042_CalculatedPositionInCartesianCo_ordinates;
+import bean.*;
 import decoder.CommonUtil;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
@@ -40,22 +38,36 @@ public class classTest {
     }
 
     @Test
+    public void test0170() {
+        // 1111 1011 0000 0000
+        int[] data = new int[]{251,128};
+        I001_170_TrackStatus i001_170_trackStatus = new I001_170_TrackStatus(data, 0);
+        System.out.println(i001_170_trackStatus);
+    }
+
+    @Test
     public void test02() {
         String s = CommonUtil.intToStringBinary(-6);
         System.out.println(s);
     }
 
     @Test
-    public void test03() {
-
-        long i = Long.parseLong("1111101000000011");
-        System.out.println(i);
-//        long i5 = CommonUtil.stringBinaryToDecimal("1000000000");
-//        System.out.println(i5);
-//        int i6 = CommonUtil.stringBinaryToDecimal("11111010");
-//
+    public void test04() {
+        //0000 1010
+        //0011 0011 0000 1010 => 11 0011 1111 0110 =>11 0011 1111 0101=> 00 1100 0000 1010
+        //  11 0011 1111 0110
+        int[] data = new int[]{51, -10};
+        I001_090_ModeCCodeInBinaryRepresentation i001_090_modeCCodeInBinaryRepresentation = new I001_090_ModeCCodeInBinaryRepresentation(data, 0);
+        System.out.println(i001_090_modeCCodeInBinaryRepresentation);
     }
 
+    @Test
+    public void test03() {
+        long i5 = CommonUtil.stringBinaryToDecimal("11001111110110");
+        //1100 0000 1010
+        //11 10 +10
+        System.out.println(i5);
+    }
 }
 
 
