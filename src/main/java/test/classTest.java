@@ -25,7 +25,7 @@ public class classTest {
     @Test
     public void test030() {
         int[] data = new int[]{173, 29, 2};
-        I001_030Warning_ErrorConditions i001_030Warning_errorConditions = new I001_030Warning_ErrorConditions(data, 0);
+        I001_030_Warning_ErrorConditions i001_030Warning_errorConditions = new I001_030_Warning_ErrorConditions(data, 0);
         System.out.println(i001_030Warning_errorConditions);
     }
 

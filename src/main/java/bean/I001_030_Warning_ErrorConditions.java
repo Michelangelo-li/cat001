@@ -6,13 +6,13 @@ import lombok.Data;
 import java.util.ArrayList;
 
 @Data
-public class I001_030Warning_ErrorConditions {
+public class I001_030_Warning_ErrorConditions {
 
     private  int W_EValue;
     public static int length ;
     private ArrayList<Integer> W_EValueList;
 
-    public I001_030Warning_ErrorConditions(int[] data, int index) {
+    public I001_030_Warning_ErrorConditions(int[] data, int index) {
         W_EValueList = new ArrayList<>();
         int currentIndex = index;
         int oByte = 0;

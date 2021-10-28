@@ -12,7 +12,7 @@ public class I001_170_TrackStatus {
     private int GHO;
     private int TRE;
 
-    private static int length;
+    public static int length;
 
     public I001_170_TrackStatus(int[] data, int index) {
         length = 1;

@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class I001_161_TrackPlotNumber {
     private int TRACKPLOT_NUMBER;
-    private static int length = 2;
+    public static int length = 2;
 
     public I001_161_TrackPlotNumber(int[] data, int index) {
         TRACKPLOT_NUMBER = data[index] << 8 | data[index + 1];
